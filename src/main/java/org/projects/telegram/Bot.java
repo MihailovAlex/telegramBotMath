@@ -28,16 +28,15 @@ public class Bot extends TelegramLongPollingCommandBot {
     public Bot() {
         super();
         this.userSettingsCommand = new UserSettingsCommand();
-        register(new AdditionCommand("plus", "Примеры на сложение"));
-        register(new SubtractionCommand("minus", "Примеры на вычитание"));
-        register(new MultiplicationCommand("multi", "Примеры на умножение"));
-        register(new DivisionCommand("division", "Примеры на деление"));
-        register(new StartCommand("start", "Старт"));
-        register(new HelpCommand("help", "Помощь"));
-        register(new SettingCommand("settings", "Мои настройки"));
-        register(new ArithmeticOperationsCommand("allOperation", "Примеры со всеми операциями"));
+        register(new AdditionCommand("plus", "РџСЂРёРјРµСЂС‹ РЅР° СЃР»РѕР¶РµРЅРёРµ"));
+        register(new SubtractionCommand("minus", "РџСЂРёРјРµСЂС‹ РЅР° РІС‹С‡РёС‚Р°РЅРёРµ"));
+        register(new MultiplicationCommand("multi", "РџСЂРёРјРµСЂС‹ РЅР° СѓРјРЅРѕР¶РµРЅРёРµ"));
+        register(new DivisionCommand("division", "РџСЂРёРјРµСЂС‹ РЅР° РґРµР»РµРЅРёРµ"));
+        register(new StartCommand("start", "РЎС‚Р°СЂС‚"));
+        register(new HelpCommand("help", "РџРѕРјРѕС‰СЊ"));
+        register(new SettingCommand("settings", "РњРѕРё РЅР°СЃС‚СЂРѕР№РєРё"));
+        register(new ArithmeticOperationsCommand("allOperation", "РџСЂРёРјРµСЂС‹ СЃРѕ РІСЃРµРјРё РѕРїРµСЂР°С†РёСЏРјРё"));
         userSettings = new HashMap<>();
-
     }
 
 
