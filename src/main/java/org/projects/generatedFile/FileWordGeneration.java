@@ -34,8 +34,8 @@ public class FileWordGeneration {
     }
 
     private void setRunParameters(XWPFRun run, String task) {
-        run.setFontSize(22);  //размер шрифта
-        run.setFontFamily("TimesNewRoman");  //тип шрифта
+        run.setFontSize(22);  //СЂР°Р·РјРµСЂ С€СЂРёС„С‚Р°
+        run.setFontFamily("TimesNewRoman");  //С‚РёРї С€СЂРёС„С‚Р°
         run.setText(task);
     }
 
