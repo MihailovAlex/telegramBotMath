@@ -8,6 +8,7 @@ import org.projects.telegram.settings.Settings;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @AllArgsConstructor
@@ -25,8 +26,8 @@ public class CalculationService {
         }
         if (taskList.isEmpty()) {
             throw new IllegalArgumentException(String.format("Ошибка! По заданным настройкам " +
-                            "(min = %s, max = %s, listCount = %s) не удалось создать ни одной строки " +
-                            "с примерами", settings.getMin(), settings.getMax(), settings.getCountList()));
+                    "(min = %s, max = %s, listCount = %s) не удалось создать ни одной строки " +
+                    "с примерами", settings.getMin(), settings.getMax(), settings.getCountList()));
         }
         return fileWordGeneration.createWordFile(taskList);
     }
@@ -38,6 +39,7 @@ public class CalculationService {
             fillTaskList(taskList, operation, taskCount, settings.getMin(), settings.getMax(),
                     settings.getCountUniqueTask());
         }
+        Collections.shuffle(taskList);
         return taskList;
     }
 
@@ -55,6 +57,8 @@ public class CalculationService {
         int linesCount = 20;  //количество строк, вмещающихся на одну страницу А4
         if (operationsCount == 1) {
             return linesCount;
+        } else if (operationsCount == 4) {
+            return linesCount / 4;
         } else {
             throw new IllegalArgumentException("Количество операций для формирования файла с примерами больше 1");
         }

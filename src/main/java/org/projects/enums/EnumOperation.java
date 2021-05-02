@@ -9,7 +9,7 @@ public enum EnumOperation {
     MULTIPLICATION,
     DIVISION;
 
-   /* public static List<EnumOperation> getOperation() {
+    public static List<EnumOperation> getOperation() {
         return Arrays.asList(values());
-    }*/
+    }
 }

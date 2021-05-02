@@ -1,10 +1,7 @@
 package org.projects.telegram;
 
 import lombok.Getter;
-import org.projects.telegram.commands.operations.AdditionCommand;
-import org.projects.telegram.commands.operations.DivisionCommand;
-import org.projects.telegram.commands.operations.MultiplicationCommand;
-import org.projects.telegram.commands.operations.SubtractionCommand;
+import org.projects.telegram.commands.operations.*;
 import org.projects.telegram.commands.service.HelpCommand;
 import org.projects.telegram.commands.service.SettingCommand;
 import org.projects.telegram.commands.service.StartCommand;
@@ -31,13 +28,14 @@ public class Bot extends TelegramLongPollingCommandBot {
     public Bot() {
         super();
         this.userSettingsCommand = new UserSettingsCommand();
-        register(new AdditionCommand("plus", "Сложение"));
-        register(new SubtractionCommand("minus", "Вычитание"));
-        register(new MultiplicationCommand("multi", "Умножение"));
-        register(new DivisionCommand("division", "Деление"));
+        register(new AdditionCommand("plus", "Примеры на сложение"));
+        register(new SubtractionCommand("minus", "Примеры на вычитание"));
+        register(new MultiplicationCommand("multi", "Примеры на умножение"));
+        register(new DivisionCommand("division", "Примеры на деление"));
         register(new StartCommand("start", "Старт"));
         register(new HelpCommand("help", "Помощь"));
         register(new SettingCommand("settings", "Мои настройки"));
+        register(new ArithmeticOperationsCommand("allOperation", "Примеры со всеми операциями"));
         userSettings = new HashMap<>();
 
     }
@@ -48,7 +46,7 @@ public class Bot extends TelegramLongPollingCommandBot {
     }
 
     public String getBotToken() {
-        return "1445653628:AAG3Zag6iFOBAC0U_1FNjN1McsaRr7yOkNw";
+        return "//";
     }
 
     @Override
