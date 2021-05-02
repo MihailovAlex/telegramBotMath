@@ -38,10 +38,10 @@ public class Settings {
             uniqueTaskCount = (range * (range + 1)) / 2;
         }
         if (uniqueTaskCount < 0) {
-            throw new IllegalArgumentException(String.format("Заданный диапазон значений %s - %s слишком большой. ", min, max));
+            throw new IllegalArgumentException(String.format("Р—Р°РґР°РЅРЅС‹Р№ РґРёР°РїР°Р·РѕРЅ Р·РЅР°С‡РµРЅРёР№ %s - %s СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№. ", min, max));
         }
         if (uniqueTaskCount == 0) {
-            throw new IllegalArgumentException("Заданные числа совпадают! Попробуйте другие значения");
+            throw new IllegalArgumentException("Р—Р°РґР°РЅРЅС‹Рµ С‡РёСЃР»Р° СЃРѕРІРїР°РґР°СЋС‚! РџРѕРїСЂРѕР±СѓР№С‚Рµ РґСЂСѓРіРёРµ Р·РЅР°С‡РµРЅРёСЏ");
         }
         return uniqueTaskCount;
     }
