@@ -10,26 +10,26 @@ public class UserSettingsCommand {
         try {
             settings = createSettings(text);
             saveUserSettings(chatId, settings);
-            answer = "Настройки изменены. Детальнее смотрите в /settings";
+            answer = "РќР°СЃС‚СЂРѕР№РєРё РёР·РјРµРЅРµРЅС‹. Р”РµС‚Р°Р»СЊРЅРµРµ СЃРјРѕС‚СЂРёС‚Рµ РІ /settings";
         } catch (IllegalArgumentException e) {
             answer = e.getMessage() +
-                    "\n Настройки не были изменены. Детальнее смотрите в /settings";
+                    "\n РќР°СЃС‚СЂРѕР№РєРё РЅРµ Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹. Р”РµС‚Р°Р»СЊРЅРµРµ СЃРјРѕС‚СЂРёС‚Рµ РІ /settings";
         } catch (Exception e) {
-            answer = "Ошибка ввода! Проверьте правильность введенных значений: три числа через занятую или пробел. \n" +
-                    "Или воспользуйтесь /help";
+            answer = "РћС€РёР±РєР° РІРІРѕРґР°! РџСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРІРµРґРµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№: С‚СЂРё С‡РёСЃР»Р° С‡РµСЂРµР· Р·Р°РЅСЏС‚СѓСЋ РёР»Рё РїСЂРѕР±РµР». \n" +
+                    "РР»Рё РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ /help";
         }
         return answer;
     }
 
     private Settings createSettings(String text) throws IllegalArgumentException {
         if (text == null) {
-            throw new IllegalArgumentException("Сообщение не является текстом");
+            throw new IllegalArgumentException("РЎРѕРѕР±С‰РµРЅРёРµ РЅРµ СЏРІР»СЏРµС‚СЃСЏ С‚РµРєСЃС‚РѕРј");
         }
         text = text.replaceAll(", ", ",")
                 .replaceAll(" ", ",");
         String[] parameters = text.split(",");
         if (parameters.length != 3) {
-            throw new IllegalArgumentException(String.format("Не удалось получить из \"%s\" 3 числа",
+            throw new IllegalArgumentException(String.format("РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РёР· \"%s\" 3 С‡РёСЃР»Р°",
                     text));
         }
         int min = Integer.parseInt(parameters[0]);
@@ -37,7 +37,7 @@ public class UserSettingsCommand {
         int listCount = Integer.parseInt(parameters[2]);
 
         if (min == 0 || max == 0 || listCount == 0) {
-            throw new IllegalArgumentException("Ни один из параметров не должен равняться 0");
+            throw new IllegalArgumentException("РќРё РѕРґРёРЅ РёР· РїР°СЂР°РјРµС‚СЂРѕРІ РЅРµ РґРѕР»Р¶РµРЅ СЂР°РІРЅСЏС‚СЊСЃСЏ 0");
         }
 
         return new Settings(min, max, listCount);
@@ -50,5 +50,4 @@ public class UserSettingsCommand {
             Bot.getUserSettings().remove(chatId);
         }
     }
-
 }
