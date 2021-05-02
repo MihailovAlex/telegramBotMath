@@ -25,9 +25,9 @@ public class CalculationService {
             taskList.addAll(getTaskList(operations, settings));
         }
         if (taskList.isEmpty()) {
-            throw new IllegalArgumentException(String.format("Ошибка! По заданным настройкам " +
-                    "(min = %s, max = %s, listCount = %s) не удалось создать ни одной строки " +
-                    "с примерами", settings.getMin(), settings.getMax(), settings.getCountList()));
+            throw new IllegalArgumentException(String.format("РћС€РёР±РєР°! РџРѕ Р·Р°РґР°РЅРЅС‹Рј РЅР°СЃС‚СЂРѕР№РєР°Рј " +
+                    "(min = %s, max = %s, listCount = %s) РЅРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РЅРё РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё " +
+                    "СЃ РїСЂРёРјРµСЂР°РјРё", settings.getMin(), settings.getMax(), settings.getCountList()));
         }
         return fileWordGeneration.createWordFile(taskList);
     }
@@ -54,13 +54,13 @@ public class CalculationService {
     }
 
     private int getOperationTaskCount(int operationsCount) {
-        int linesCount = 20;  //количество строк, вмещающихся на одну страницу А4
+        int linesCount = 20;  //РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє, РІРјРµС‰Р°СЋС‰РёС…СЃСЏ РЅР° РѕРґРЅСѓ СЃС‚СЂР°РЅРёС†Сѓ Рђ4
         if (operationsCount == 1) {
             return linesCount;
         } else if (operationsCount == 4) {
             return linesCount / 4;
         } else {
-            throw new IllegalArgumentException("Количество операций для формирования файла с примерами больше 1");
+            throw new IllegalArgumentException("РљРѕР»РёС‡РµСЃС‚РІРѕ РѕРїРµСЂР°С†РёР№ РґР»СЏ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ С„Р°Р№Р»Р° СЃ РїСЂРёРјРµСЂР°РјРё Р±РѕР»СЊС€Рµ 1");
         }
     }
 
